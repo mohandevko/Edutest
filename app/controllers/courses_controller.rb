@@ -11,6 +11,9 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     @course.save
+    puts "========================"
+    puts @course.inspect
+    puts "========================"
     redirect_to courses_path
   end
 
