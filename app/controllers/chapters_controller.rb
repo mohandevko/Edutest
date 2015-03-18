@@ -2,7 +2,8 @@ class ChaptersController < ApplicationController
 
 
   def index
-    @chapters = Chapter.all
+    @syllabus = Syllabus.find(params[:format])
+    @chapters = @syllabus.chapters
   end
 
   def new
@@ -14,7 +15,7 @@ class ChaptersController < ApplicationController
     @syllabus = Syllabus.find(params[:chapter][:syllabus_id])
     @chapter = @syllabus.chapters.create(chapter_params)
     #redirect_to course_path(@course)
-    redirect_to chapters_path
+    redirect_to courses_path
   end
 
   private

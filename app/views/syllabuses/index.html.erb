@@ -12,6 +12,7 @@
         <td><%= syllabus.name %></td>
         <% if current_user.role == "professor" %>
           <td><%= link_to "Create Chapters", new_chapter_path(syllabus) %></td>
+          <td><%= link_to "Show Chapter", chapters_path(syllabus) %></td>
           <td></td>
         <% end %>
       </tr>
