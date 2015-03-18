@@ -1,0 +1,14 @@
+<div style="padding-top:20px;margin-left:183px;">
+  <%= form_for(@chapter) do |f| %>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <%= f.hidden_field :syllabus_id, value: @syllabus.id %>
+
+    <p>
+      <%= f.submit "create", class: "btn btn-success" %>
+    </p>
+  <% end %>
+</div>

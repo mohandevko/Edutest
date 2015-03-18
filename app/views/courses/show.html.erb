@@ -1,0 +1,32 @@
+<div style="padding-top:20px;margin-left:183px;" class="container">
+  <p>
+    <strong>Title:</strong>
+    <%= @course.name %>
+  </p><br />
+
+
+  <h2>Syllabuses</h2>
+  <% @course.syllabuses.each do |syllabus| %>
+    <p>
+      <strong>Name:</strong>
+      <%= syllabus.name %>
+    </p>
+
+  <% end %>
+  <br /><br />
+  <% if current_user.role == "professor" %>
+    <h2>Add a Syllabus:</h2>
+    <%= form_for([@course, @course.syllabuses.build]) do |f| %>
+      <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.submit "Create", class: "btn btn-success" %>
+      </p>
+    <% end %>
+  <% end %>
+
+  <br />
+  <%= link_to 'Back', courses_path, class: "btn btn-primary" %>
+</div>

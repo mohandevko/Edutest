@@ -1,0 +1,14 @@
+<div style="padding-top:20px;margin-left:183px;">
+  <%= form_for(@course) do |f| %>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+
+    <p>
+      <%= f.submit "create", class: "btn btn-success"  %>
+    </p>
+  <% end %>
+</div>

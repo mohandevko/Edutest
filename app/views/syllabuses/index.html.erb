@@ -1,0 +1,22 @@
+<div style="padding-top:20px;margin-left:183px;">
+  <h2>Listing Syllabuses</h2><br /><br />
+  <% if @syllabuses.present? %>
+  <table>
+    <tr>
+      <th>Syllabus</th>
+      <th>Links</th>
+    </tr>
+
+    <% @syllabuses.each do |syllabus| %>
+      <tr>
+        <td><%= syllabus.name %></td>
+        <% if current_user.role == "professor" %>
+          <td><%= link_to "Create Chapters", new_chapter_path(syllabus) %></td>
+          <td></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table><br />
+  <% end %>
+  <%= link_to 'Courses', courses_path, class: "btn btn-primary" %>
+</div>

@@ -1,0 +1,27 @@
+<div style="padding-top:20px;margin-left:183px;">
+  <h2>Listing Courses</h2><br /><br />
+  <% if @courses.present? %>
+  <table>
+    <tr>
+      <th>Course</th>
+      <th>Links</th>
+    </tr>
+
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <td><%= link_to "Show", course_path(course) %> &nbsp||
+        <%= link_to "Syllabus", course_syllabuses_path(course) %></td>
+      </tr>
+    <% end %>
+  </table><br />
+  <% if current_user.role == "professor" %>
+    <%= link_to 'New course', new_course_path, class: "btn btn-primary" %>
+  <% end %>
+  <% else %>
+  <b>No Courses</b><br />
+  <% if current_user.role == "professor" %>
+    <%= link_to 'New course', new_course_path %>
+  <% end %>
+  <% end %>
+</div>
